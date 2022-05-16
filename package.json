@@ -1,0 +1,144 @@
+{
+  "name": "storybook-cypress",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "build-storybook": "build-storybook -s public",
+    "cypress:open": "cypress open",
+    "eject": "react-scripts eject",
+    "install-peers": "npx npm-install-peers",
+    "server": "nodemon --watch ./json-server/ ./json-server/server.js --delay 10",
+    "start": "concurrently --kill-others \"npm run storybook\" \"npm run server\"",
+    "storybook": "start-storybook -p 6006 -s public",
+    "test": "cypress run",
+    "sample-app": "react-scripts -r @cypress/instrument-cra start",
+    "start:api": "nodemon --watch ./json-server/ ./json-server/server.js --delay 10",
+    "start:server": "BROWSER=none start-storybook -p 6006",
+    "test:all": "NODE_ENV=development BABEL_ENV=development start-test start:api 3030 start:server 6006 test"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:cypress/recommended"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.6.4",
+    "@mui/styles": "^5.6.2",
+    "@reduxjs/toolkit": "^1.8.1",
+    "@rjsf/core": "4.1.1",
+    "@rjsf/material-ui": "4.1.1",
+    "axios": "^0.27.2",
+    "clipboard-copy": "^4.0.1",
+    "moment": "^2.29.3",
+    "moment-timezone": "^0.5.34",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-redux": "^8.0.1",
+    "react-request-hook": "2.1.1",
+    "react-toastify": "^9.0.0"
+  },
+  "devDependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@cypress/code-coverage": "^3.9.12",
+    "@cypress/instrument-cra": "^1.4.0",
+    "@cypress/react": "^5.12.4",
+    "@cypress/webpack-dev-server": "^1.8.4",
+    "@storybook/addon-actions": "^6.5.0-alpha.62",
+    "@storybook/addon-essentials": "^6.5.0-alpha.62",
+    "@storybook/addon-interactions": "^6.5.0-alpha.62",
+    "@storybook/addon-links": "^6.5.0-alpha.62",
+    "@storybook/builder-webpack5": "^6.5.0-alpha.62",
+    "@storybook/manager-webpack5": "^6.5.0-alpha.62",
+    "@storybook/node-logger": "^6.5.0-alpha.62",
+    "@storybook/preset-create-react-app": "^4.1.0",
+    "@storybook/react": "^6.5.0-alpha.62",
+    "@storybook/testing-library": "^0.0.9",
+    "@storybook/testing-react": "^1.2.4",
+    "@testing-library/cypress": "^8.0.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^16.11.26",
+    "@types/react": "^17.0.44",
+    "@types/react-dom": "^17.0.16",
+    "@types/testing-library__cypress": "^5.0.9",
+    "addon-redux": "2.0.11",
+    "chalk": "^4.1.2",
+    "concurrently": "^7.1.0",
+    "cypress": "^9.5.4",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-storybook": "^0.5.1",
+    "eslint-plugin-cypress": "^2.12.1",
+    "http-proxy-middleware": "^2.0.6",
+    "json-server": "^0.17.0",
+    "nodemon": "^2.0.15",
+    "react-scripts": "5.0.0",
+    "sass": "^1.50.0",
+    "start-server-and-test": "^1.14.0",
+    "storybook-axios": "^1.0.1",
+    "typescript": "^4.6.3",
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.72.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/integration/step-definitions"
+  },
+  "config": {
+    "apiPort": "3030",
+    "baseURL": "/api/",
+    "defaultTarget": "http://localhost:",
+    "environment": "snp",
+    "htmlExtension": ".html",
+    "regionCode": "us",
+    "token": {
+      "production": "you will need to generate your own token for testing in production and replace this string",
+      "staging": "you will need to generate your own token for testing in staging and replace this string",
+      "snp": "you will need to generate your own token for testing in snp and replace this string"
+    },
+    "useMocks": true
+  },
+  "dependencies": {
+    "react-json-view": "^1.21.3"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/**/*.{ts,tsx}",
+      "cypress/integration/step-definitions/**/*.ts"
+    ],
+    "exclude": []
+  }
+}

@@ -1,0 +1,1585 @@
+{
+  "userWallsAPIResponseGeneratorPostSchema": {
+    "title": "Plan Picker API Response",
+    "type": "object",
+    "required": [
+      "env",
+      "market",
+      "device",
+      "token_type"
+    ],
+    "properties": {
+      "env": {
+        "$id": "#root/env",
+        "title": "Env",
+        "type": "string",
+        "default": "",
+        "examples": [
+          "snp"
+        ],
+        "pattern": "^.*$",
+        "oneOf": [
+          {
+            "type": "string",
+            "const": "prod",
+            "title": "Production"
+          },
+          {
+            "type": "string",
+            "const": "staging",
+            "title": "Staging"
+          },
+          {
+            "type": "string",
+            "const": "snp",
+            "title": "SNP"
+          }
+        ]
+      },
+      "market": {
+        "$id": "#root/market",
+        "title": "Market",
+        "type": "string",
+        "default": "",
+        "examples": [
+          "us"
+        ],
+        "pattern": "^.*$",
+        "oneOf": [
+          {
+            "type": "string",
+            "const": "us",
+            "title": "US"
+          },
+          {
+            "type": "string",
+            "const": "latam",
+            "title": "LatAm"
+          },
+          {
+            "type": "string",
+            "const": "emea",
+            "title": "EMEA"
+          }
+        ]
+      },
+      "device": {
+        "$id": "#root/device",
+        "title": "Device",
+        "type": "string",
+        "default": "",
+        "oneOf": [
+          {
+            "type": "string",
+            "const": "android_phone",
+            "title": "Android Phone"
+          },
+          {
+            "type": "string",
+            "const": "android_tablet",
+            "title": "Android Tablet"
+          },
+          {
+            "type": "string",
+            "const": "android_tv",
+            "title": "Android TV"
+          },
+          {
+            "type": "string",
+            "const": "apple_tv_hadron",
+            "title": "Apple TV (Hadron)"
+          },
+          {
+            "type": "string",
+            "const": "apple_tv_marquee",
+            "title": "Apple TV (Marquee)"
+          },
+          {
+            "type": "string",
+            "const": "desktop",
+            "title": "Desktop"
+          },
+          {
+            "type": "string",
+            "const": "fire_tv",
+            "title": "Fire TV"
+          },
+          {
+            "type": "string",
+            "const": "ipad",
+            "title": "iPad"
+          },
+          {
+            "type": "string",
+            "const": "iphone",
+            "title": "iPhone"
+          },
+          {
+            "type": "string",
+            "const": "roku",
+            "title": "Roku"
+          },
+          {
+            "type": "string",
+            "const": "tizen_tv",
+            "title": "Samsung TV"
+          }
+        ]
+      },
+      "token_type": {
+        "$id": "#root/token_type",
+        "title": "Token Type",
+        "type": "string",
+        "readOnly": true,
+        "default": "client",
+        "examples": [
+          "client"
+        ],
+        "pattern": "^.*$"
+      },
+      "time_travel_timestamp": {
+        "$id": "#root/time_travel_timestamp",
+        "title": "Time Travel Timestamp",
+        "type": "string",
+        "format": "date-time",
+        "examples": [
+          "2009-06-15T13:45:30.0000000Z"
+        ]
+      },
+      "ip": {
+        "$id": "#root/ip",
+        "title": "IP",
+        "type": "string",
+        "default": "",
+        "examples": [
+          "192.161.1.2"
+        ],
+        "pattern": "^.*$"
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "device": {
+              "enum": [
+                "roku",
+                "apple_tv_hadron",
+                "apple_tv_marquee",
+                "ipad",
+                "iphone",
+                "tizen_tv"
+              ]
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "app_store_front": {
+              "title": "App Store Front",
+              "type": "string",
+              "oneOf": [
+                {
+                  "const": "AD",
+                  "title": "Andorra",
+                  "type": "string"
+                },
+                {
+                  "const": "AE",
+                  "title": "United Arab Emirates",
+                  "type": "string"
+                },
+                {
+                  "const": "AF",
+                  "title": "Afghanistan",
+                  "type": "string"
+                },
+                {
+                  "const": "AG",
+                  "title": "Antigua and Barbuda",
+                  "type": "string"
+                },
+                {
+                  "const": "AI",
+                  "title": "Anguilla",
+                  "type": "string"
+                },
+                {
+                  "const": "AL",
+                  "title": "Albania",
+                  "type": "string"
+                },
+                {
+                  "const": "AM",
+                  "title": "Armenia",
+                  "type": "string"
+                },
+                {
+                  "const": "AO",
+                  "title": "Angola",
+                  "type": "string"
+                },
+                {
+                  "const": "AQ",
+                  "title": "Antarctica",
+                  "type": "string"
+                },
+                {
+                  "const": "AR",
+                  "title": "Argentina",
+                  "type": "string"
+                },
+                {
+                  "const": "AS",
+                  "title": "American Samoa",
+                  "type": "string"
+                },
+                {
+                  "const": "AT",
+                  "title": "Austria",
+                  "type": "string"
+                },
+                {
+                  "const": "AU",
+                  "title": "Australia",
+                  "type": "string"
+                },
+                {
+                  "const": "AW",
+                  "title": "Aruba",
+                  "type": "string"
+                },
+                {
+                  "const": "AX",
+                  "title": "Alland Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "AZ",
+                  "title": "Azerbaijan",
+                  "type": "string"
+                },
+                {
+                  "const": "BA",
+                  "title": "Bosnia and Herzegovina",
+                  "type": "string"
+                },
+                {
+                  "const": "BB",
+                  "title": "Barbados",
+                  "type": "string"
+                },
+                {
+                  "const": "BD",
+                  "title": "Bangladesh",
+                  "type": "string"
+                },
+                {
+                  "const": "BE",
+                  "title": "Belgium",
+                  "type": "string"
+                },
+                {
+                  "const": "BF",
+                  "title": "Burkina Faso",
+                  "type": "string"
+                },
+                {
+                  "const": "BG",
+                  "title": "Bulgaria",
+                  "type": "string"
+                },
+                {
+                  "const": "BH",
+                  "title": "Bahrain",
+                  "type": "string"
+                },
+                {
+                  "const": "BI",
+                  "title": "Burundi",
+                  "type": "string"
+                },
+                {
+                  "const": "BJ",
+                  "title": "Benin",
+                  "type": "string"
+                },
+                {
+                  "const": "BL",
+                  "title": "Saint Barthelemy",
+                  "type": "string"
+                },
+                {
+                  "const": "BM",
+                  "title": "Bermuda",
+                  "type": "string"
+                },
+                {
+                  "const": "BN",
+                  "title": "Brunei Darussalam",
+                  "type": "string"
+                },
+                {
+                  "const": "BO",
+                  "title": "Bolivia",
+                  "type": "string"
+                },
+                {
+                  "const": "BR",
+                  "title": "Brazil",
+                  "type": "string"
+                },
+                {
+                  "const": "BS",
+                  "title": "Bahamas",
+                  "type": "string"
+                },
+                {
+                  "const": "BT",
+                  "title": "Bhutan",
+                  "type": "string"
+                },
+                {
+                  "const": "BV",
+                  "title": "Bouvet Island",
+                  "type": "string"
+                },
+                {
+                  "const": "BW",
+                  "title": "Botswana",
+                  "type": "string"
+                },
+                {
+                  "const": "BY",
+                  "title": "Belarus",
+                  "type": "string"
+                },
+                {
+                  "const": "BZ",
+                  "title": "Belize",
+                  "type": "string"
+                },
+                {
+                  "const": "CA",
+                  "title": "Canada",
+                  "type": "string"
+                },
+                {
+                  "const": "CC",
+                  "title": "Cocos 'Keeling' Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "CD",
+                  "title": "Congo, Democratic Republic of the",
+                  "type": "string"
+                },
+                {
+                  "const": "CF",
+                  "title": "Central African Republic",
+                  "type": "string"
+                },
+                {
+                  "const": "CG",
+                  "title": "Congo, Republic of the",
+                  "type": "string"
+                },
+                {
+                  "const": "CH",
+                  "title": "Switzerland",
+                  "type": "string"
+                },
+                {
+                  "const": "CI",
+                  "title": "Cote d'Ivoire",
+                  "type": "string"
+                },
+                {
+                  "const": "CK",
+                  "title": "Cook Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "CL",
+                  "title": "Chile",
+                  "type": "string"
+                },
+                {
+                  "const": "CM",
+                  "title": "Cameroon",
+                  "type": "string"
+                },
+                {
+                  "const": "CN",
+                  "title": "China",
+                  "type": "string"
+                },
+                {
+                  "const": "CO",
+                  "title": "Colombia",
+                  "type": "string"
+                },
+                {
+                  "const": "CR",
+                  "title": "Costa Rica",
+                  "type": "string"
+                },
+                {
+                  "const": "CU",
+                  "title": "Cuba",
+                  "type": "string"
+                },
+                {
+                  "const": "CV",
+                  "title": "Cape Verde",
+                  "type": "string"
+                },
+                {
+                  "const": "CW",
+                  "title": "Curacao",
+                  "type": "string"
+                },
+                {
+                  "const": "CX",
+                  "title": "Christmas Island",
+                  "type": "string"
+                },
+                {
+                  "const": "CY",
+                  "title": "Cyprus",
+                  "type": "string"
+                },
+                {
+                  "const": "CZ",
+                  "title": "Czech Republic",
+                  "type": "string"
+                },
+                {
+                  "const": "DE",
+                  "title": "Germany",
+                  "type": "string"
+                },
+                {
+                  "const": "DJ",
+                  "title": "Djibouti",
+                  "type": "string"
+                },
+                {
+                  "const": "DK",
+                  "title": "Denmark",
+                  "type": "string"
+                },
+                {
+                  "const": "DM",
+                  "title": "Dominica",
+                  "type": "string"
+                },
+                {
+                  "const": "DO",
+                  "title": "Dominican Republic",
+                  "type": "string"
+                },
+                {
+                  "const": "DZ",
+                  "title": "Algeria",
+                  "type": "string"
+                },
+                {
+                  "const": "EC",
+                  "title": "Ecuador",
+                  "type": "string"
+                },
+                {
+                  "const": "EE",
+                  "title": "Estonia",
+                  "type": "string"
+                },
+                {
+                  "const": "EG",
+                  "title": "Egypt",
+                  "type": "string"
+                },
+                {
+                  "const": "EH",
+                  "title": "Western Sahara",
+                  "type": "string"
+                },
+                {
+                  "const": "ER",
+                  "title": "Eritrea",
+                  "type": "string"
+                },
+                {
+                  "const": "ES",
+                  "title": "Spain",
+                  "type": "string"
+                },
+                {
+                  "const": "ET",
+                  "title": "Ethiopia",
+                  "type": "string"
+                },
+                {
+                  "const": "FI",
+                  "title": "Finland",
+                  "type": "string"
+                },
+                {
+                  "const": "FJ",
+                  "title": "Fiji",
+                  "type": "string"
+                },
+                {
+                  "const": "FK",
+                  "title": "Falkland Islands - Malvinas",
+                  "type": "string"
+                },
+                {
+                  "const": "FM",
+                  "title": "Micronesia, Federated States of",
+                  "type": "string"
+                },
+                {
+                  "const": "FO",
+                  "title": "Faroe Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "FR",
+                  "title": "France",
+                  "type": "string"
+                },
+                {
+                  "const": "GA",
+                  "title": "Gabon",
+                  "type": "string"
+                },
+                {
+                  "const": "GB",
+                  "title": "United Kingdom",
+                  "type": "string"
+                },
+                {
+                  "const": "GD",
+                  "title": "Grenada",
+                  "type": "string"
+                },
+                {
+                  "const": "GE",
+                  "title": "Georgia",
+                  "type": "string"
+                },
+                {
+                  "const": "GF",
+                  "title": "French Guiana",
+                  "type": "string"
+                },
+                {
+                  "const": "GG",
+                  "title": "Guernsey",
+                  "type": "string"
+                },
+                {
+                  "const": "GH",
+                  "title": "Ghana",
+                  "type": "string"
+                },
+                {
+                  "const": "GI",
+                  "title": "Gibraltar",
+                  "type": "string"
+                },
+                {
+                  "const": "GL",
+                  "title": "Greenland",
+                  "type": "string"
+                },
+                {
+                  "const": "GM",
+                  "title": "Gambia",
+                  "type": "string"
+                },
+                {
+                  "const": "GN",
+                  "title": "Guinea",
+                  "type": "string"
+                },
+                {
+                  "const": "GP",
+                  "title": "Guadeloupe",
+                  "type": "string"
+                },
+                {
+                  "const": "GQ",
+                  "title": "Equatorial Guinea",
+                  "type": "string"
+                },
+                {
+                  "const": "GR",
+                  "title": "Greece",
+                  "type": "string"
+                },
+                {
+                  "const": "GS",
+                  "title": "South Georgia and the South Sandwich Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "GT",
+                  "title": "Guatemala",
+                  "type": "string"
+                },
+                {
+                  "const": "GU",
+                  "title": "Guam",
+                  "type": "string"
+                },
+                {
+                  "const": "GW",
+                  "title": "Guinea-Bissau",
+                  "type": "string"
+                },
+                {
+                  "const": "GY",
+                  "title": "Guyana",
+                  "type": "string"
+                },
+                {
+                  "const": "HK",
+                  "title": "Hong Kong",
+                  "type": "string"
+                },
+                {
+                  "const": "HM",
+                  "title": "Heard Island and McDonald Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "HN",
+                  "title": "Honduras",
+                  "type": "string"
+                },
+                {
+                  "const": "HR",
+                  "title": "Croatia",
+                  "type": "string"
+                },
+                {
+                  "const": "HT",
+                  "title": "Haiti",
+                  "type": "string"
+                },
+                {
+                  "const": "HU",
+                  "title": "Hungary",
+                  "type": "string"
+                },
+                {
+                  "const": "ID",
+                  "title": "Indonesia",
+                  "type": "string"
+                },
+                {
+                  "const": "IE",
+                  "title": "Ireland",
+                  "type": "string"
+                },
+                {
+                  "const": "IL",
+                  "title": "Israel",
+                  "type": "string"
+                },
+                {
+                  "const": "IM",
+                  "title": "Isle of Man",
+                  "type": "string"
+                },
+                {
+                  "const": "IN",
+                  "title": "India",
+                  "type": "string"
+                },
+                {
+                  "const": "IO",
+                  "title": "British Indian Ocean Territory",
+                  "type": "string"
+                },
+                {
+                  "const": "IQ",
+                  "title": "Iraq",
+                  "type": "string"
+                },
+                {
+                  "const": "IR",
+                  "title": "Iran, Islamic Republic of",
+                  "type": "string"
+                },
+                {
+                  "const": "IS",
+                  "title": "Iceland",
+                  "type": "string"
+                },
+                {
+                  "const": "IT",
+                  "title": "Italy",
+                  "type": "string"
+                },
+                {
+                  "const": "JE",
+                  "title": "Jersey",
+                  "type": "string"
+                },
+                {
+                  "const": "JM",
+                  "title": "Jamaica",
+                  "type": "string"
+                },
+                {
+                  "const": "JO",
+                  "title": "Jordan",
+                  "type": "string"
+                },
+                {
+                  "const": "JP",
+                  "title": "Japan",
+                  "type": "string"
+                },
+                {
+                  "const": "KE",
+                  "title": "Kenya",
+                  "type": "string"
+                },
+                {
+                  "const": "KG",
+                  "title": "Kyrgyzstan",
+                  "type": "string"
+                },
+                {
+                  "const": "KH",
+                  "title": "Cambodia",
+                  "type": "string"
+                },
+                {
+                  "const": "KI",
+                  "title": "Kiribati",
+                  "type": "string"
+                },
+                {
+                  "const": "KM",
+                  "title": "Comoros",
+                  "type": "string"
+                },
+                {
+                  "const": "KN",
+                  "title": "Saint Kitts and Nevis",
+                  "type": "string"
+                },
+                {
+                  "const": "KP",
+                  "title": "Korea, Democratic People's Republic of",
+                  "type": "string"
+                },
+                {
+                  "const": "KR",
+                  "title": "Korea, Republic of",
+                  "type": "string"
+                },
+                {
+                  "const": "KW",
+                  "title": "Kuwait",
+                  "type": "string"
+                },
+                {
+                  "const": "KY",
+                  "title": "Cayman Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "KZ",
+                  "title": "Kazakhstan",
+                  "type": "string"
+                },
+                {
+                  "const": "LA",
+                  "title": "Lao People's Democratic Republic",
+                  "type": "string"
+                },
+                {
+                  "const": "LB",
+                  "title": "Lebanon",
+                  "type": "string"
+                },
+                {
+                  "const": "LC",
+                  "title": "Saint Lucia",
+                  "type": "string"
+                },
+                {
+                  "const": "LI",
+                  "title": "Liechtenstein",
+                  "type": "string"
+                },
+                {
+                  "const": "LK",
+                  "title": "Sri Lanka",
+                  "type": "string"
+                },
+                {
+                  "const": "LR",
+                  "title": "Liberia",
+                  "type": "string"
+                },
+                {
+                  "const": "LS",
+                  "title": "Lesotho",
+                  "type": "string"
+                },
+                {
+                  "const": "LT",
+                  "title": "Lithuania",
+                  "type": "string"
+                },
+                {
+                  "const": "LU",
+                  "title": "Luxembourg",
+                  "type": "string"
+                },
+                {
+                  "const": "LV",
+                  "title": "Latvia",
+                  "type": "string"
+                },
+                {
+                  "const": "LY",
+                  "title": "Libya",
+                  "type": "string"
+                },
+                {
+                  "const": "MA",
+                  "title": "Morocco",
+                  "type": "string"
+                },
+                {
+                  "const": "MC",
+                  "title": "Monaco",
+                  "type": "string"
+                },
+                {
+                  "const": "MD",
+                  "title": "Moldova, Republic of",
+                  "type": "string"
+                },
+                {
+                  "const": "ME",
+                  "title": "Montenegro",
+                  "type": "string"
+                },
+                {
+                  "const": "MF",
+                  "title": "Saint Martin - French part",
+                  "type": "string"
+                },
+                {
+                  "const": "MG",
+                  "title": "Madagascar",
+                  "type": "string"
+                },
+                {
+                  "const": "MH",
+                  "title": "Marshall Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "MK",
+                  "title": "Macedonia, the Former Yugoslav Republic of",
+                  "type": "string"
+                },
+                {
+                  "const": "ML",
+                  "title": "Mali",
+                  "type": "string"
+                },
+                {
+                  "const": "MM",
+                  "title": "Myanmar",
+                  "type": "string"
+                },
+                {
+                  "const": "MN",
+                  "title": "Mongolia",
+                  "type": "string"
+                },
+                {
+                  "const": "MO",
+                  "title": "Macao",
+                  "type": "string"
+                },
+                {
+                  "const": "MP",
+                  "title": "Northern Mariana Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "MQ",
+                  "title": "Martinique",
+                  "type": "string"
+                },
+                {
+                  "const": "MR",
+                  "title": "Mauritania",
+                  "type": "string"
+                },
+                {
+                  "const": "MS",
+                  "title": "Montserrat",
+                  "type": "string"
+                },
+                {
+                  "const": "MT",
+                  "title": "Malta",
+                  "type": "string"
+                },
+                {
+                  "const": "MU",
+                  "title": "Mauritius",
+                  "type": "string"
+                },
+                {
+                  "const": "MV",
+                  "title": "Maldives",
+                  "type": "string"
+                },
+                {
+                  "const": "MW",
+                  "title": "Malawi",
+                  "type": "string"
+                },
+                {
+                  "const": "MX",
+                  "title": "Mexico",
+                  "type": "string"
+                },
+                {
+                  "const": "MY",
+                  "title": "Malaysia",
+                  "type": "string"
+                },
+                {
+                  "const": "MZ",
+                  "title": "Mozambique",
+                  "type": "string"
+                },
+                {
+                  "const": "NA",
+                  "title": "Namibia",
+                  "type": "string"
+                },
+                {
+                  "const": "NC",
+                  "title": "New Caledonia",
+                  "type": "string"
+                },
+                {
+                  "const": "NE",
+                  "title": "Niger",
+                  "type": "string"
+                },
+                {
+                  "const": "NF",
+                  "title": "Norfolk Island",
+                  "type": "string"
+                },
+                {
+                  "const": "NG",
+                  "title": "Nigeria",
+                  "type": "string"
+                },
+                {
+                  "const": "NI",
+                  "title": "Nicaragua",
+                  "type": "string"
+                },
+                {
+                  "const": "NL",
+                  "title": "Netherlands",
+                  "type": "string"
+                },
+                {
+                  "const": "NO",
+                  "title": "Norway",
+                  "type": "string"
+                },
+                {
+                  "const": "NP",
+                  "title": "Nepal",
+                  "type": "string"
+                },
+                {
+                  "const": "NR",
+                  "title": "Nauru",
+                  "type": "string"
+                },
+                {
+                  "const": "NU",
+                  "title": "Niue",
+                  "type": "string"
+                },
+                {
+                  "const": "NZ",
+                  "title": "New Zealand",
+                  "type": "string"
+                },
+                {
+                  "const": "OM",
+                  "title": "Oman",
+                  "type": "string"
+                },
+                {
+                  "const": "PA",
+                  "title": "Panama",
+                  "type": "string"
+                },
+                {
+                  "const": "PE",
+                  "title": "Peru",
+                  "type": "string"
+                },
+                {
+                  "const": "PF",
+                  "title": "French Polynesia",
+                  "type": "string"
+                },
+                {
+                  "const": "PG",
+                  "title": "Papua New Guinea",
+                  "type": "string"
+                },
+                {
+                  "const": "PH",
+                  "title": "Philippines",
+                  "type": "string"
+                },
+                {
+                  "const": "PK",
+                  "title": "Pakistan",
+                  "type": "string"
+                },
+                {
+                  "const": "PL",
+                  "title": "Poland",
+                  "type": "string"
+                },
+                {
+                  "const": "PM",
+                  "title": "Saint Pierre and Miquelon",
+                  "type": "string"
+                },
+                {
+                  "const": "PN",
+                  "title": "Pitcairn",
+                  "type": "string"
+                },
+                {
+                  "const": "PR",
+                  "title": "Puerto Rico",
+                  "type": "string"
+                },
+                {
+                  "const": "PS",
+                  "title": "Palestine, State of",
+                  "type": "string"
+                },
+                {
+                  "const": "PT",
+                  "title": "Portugal",
+                  "type": "string"
+                },
+                {
+                  "const": "PW",
+                  "title": "Palau",
+                  "type": "string"
+                },
+                {
+                  "const": "PY",
+                  "title": "Paraguay",
+                  "type": "string"
+                },
+                {
+                  "const": "QA",
+                  "title": "Qatar",
+                  "type": "string"
+                },
+                {
+                  "const": "RE",
+                  "title": "Reunion",
+                  "type": "string"
+                },
+                {
+                  "const": "RO",
+                  "title": "Romania",
+                  "type": "string"
+                },
+                {
+                  "const": "RS",
+                  "title": "Serbia",
+                  "type": "string"
+                },
+                {
+                  "const": "RU",
+                  "title": "Russian Federation",
+                  "type": "string"
+                },
+                {
+                  "const": "RW",
+                  "title": "Rwanda",
+                  "type": "string"
+                },
+                {
+                  "const": "SA",
+                  "title": "Saudi Arabia",
+                  "type": "string"
+                },
+                {
+                  "const": "SB",
+                  "title": "Solomon Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "SC",
+                  "title": "Seychelles",
+                  "type": "string"
+                },
+                {
+                  "const": "SD",
+                  "title": "Sudan",
+                  "type": "string"
+                },
+                {
+                  "const": "SE",
+                  "title": "Sweden",
+                  "type": "string"
+                },
+                {
+                  "const": "SG",
+                  "title": "Singapore",
+                  "type": "string"
+                },
+                {
+                  "const": "SH",
+                  "title": "Saint Helena",
+                  "type": "string"
+                },
+                {
+                  "const": "SI",
+                  "title": "Slovenia",
+                  "type": "string"
+                },
+                {
+                  "const": "SJ",
+                  "title": "Svalbard and Jan Mayen",
+                  "type": "string"
+                },
+                {
+                  "const": "SK",
+                  "title": "Slovakia",
+                  "type": "string"
+                },
+                {
+                  "const": "SL",
+                  "title": "Sierra Leone",
+                  "type": "string"
+                },
+                {
+                  "const": "SM",
+                  "title": "San Marino",
+                  "type": "string"
+                },
+                {
+                  "const": "SN",
+                  "title": "Senegal",
+                  "type": "string"
+                },
+                {
+                  "const": "SO",
+                  "title": "Somalia",
+                  "type": "string"
+                },
+                {
+                  "const": "SR",
+                  "title": "Suriname",
+                  "type": "string"
+                },
+                {
+                  "const": "SS",
+                  "title": "South Sudan",
+                  "type": "string"
+                },
+                {
+                  "const": "ST",
+                  "title": "Sao Tome and Principe",
+                  "type": "string"
+                },
+                {
+                  "const": "SV",
+                  "title": "El Salvador",
+                  "type": "string"
+                },
+                {
+                  "const": "SX",
+                  "title": "Saint Maarten - Dutch part",
+                  "type": "string"
+                },
+                {
+                  "const": "SY",
+                  "title": "Syrian Arab Republic",
+                  "type": "string"
+                },
+                {
+                  "const": "SZ",
+                  "title": "Swaziland",
+                  "type": "string"
+                },
+                {
+                  "const": "TC",
+                  "title": "Turks and Caicos Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "TD",
+                  "title": "Chad",
+                  "type": "string"
+                },
+                {
+                  "const": "TF",
+                  "title": "French Southern Territories",
+                  "type": "string"
+                },
+                {
+                  "const": "TG",
+                  "title": "Togo",
+                  "type": "string"
+                },
+                {
+                  "const": "TH",
+                  "title": "Thailand",
+                  "type": "string"
+                },
+                {
+                  "const": "TJ",
+                  "title": "Tajikistan",
+                  "type": "string"
+                },
+                {
+                  "const": "TK",
+                  "title": "Tokelau",
+                  "type": "string"
+                },
+                {
+                  "const": "TL",
+                  "title": "Timor-Leste",
+                  "type": "string"
+                },
+                {
+                  "const": "TM",
+                  "title": "Turkmenistan",
+                  "type": "string"
+                },
+                {
+                  "const": "TN",
+                  "title": "Tunisia",
+                  "type": "string"
+                },
+                {
+                  "const": "TO",
+                  "title": "Tonga",
+                  "type": "string"
+                },
+                {
+                  "const": "TR",
+                  "title": "Turkey",
+                  "type": "string"
+                },
+                {
+                  "const": "TT",
+                  "title": "Trinidad and Tobago",
+                  "type": "string"
+                },
+                {
+                  "const": "TV",
+                  "title": "Tuvalu",
+                  "type": "string"
+                },
+                {
+                  "const": "TW",
+                  "title": "Taiwan, Province of China",
+                  "type": "string"
+                },
+                {
+                  "const": "TZ",
+                  "title": "United Republic of Tanzania",
+                  "type": "string"
+                },
+                {
+                  "const": "UA",
+                  "title": "Ukraine",
+                  "type": "string"
+                },
+                {
+                  "const": "UG",
+                  "title": "Uganda",
+                  "type": "string"
+                },
+                {
+                  "const": "UM",
+                  "title": "United States Minor Outlying Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "US",
+                  "title": "United States",
+                  "type": "string"
+                },
+                {
+                  "const": "UY",
+                  "title": "Uruguay",
+                  "type": "string"
+                },
+                {
+                  "const": "UZ",
+                  "title": "Uzbekistan",
+                  "type": "string"
+                },
+                {
+                  "const": "VA",
+                  "title": "Holy See - Vatican City State",
+                  "type": "string"
+                },
+                {
+                  "const": "VC",
+                  "title": "Saint Vincent and the Grenadines",
+                  "type": "string"
+                },
+                {
+                  "const": "VE",
+                  "title": "Venezuela",
+                  "type": "string"
+                },
+                {
+                  "const": "VG",
+                  "title": "British Virgin Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "VI",
+                  "title": "US Virgin Islands",
+                  "type": "string"
+                },
+                {
+                  "const": "VN",
+                  "title": "Vietnam",
+                  "type": "string"
+                },
+                {
+                  "const": "VU",
+                  "title": "Vanuatu",
+                  "type": "string"
+                },
+                {
+                  "const": "WF",
+                  "title": "Wallis and Futuna",
+                  "type": "string"
+                },
+                {
+                  "const": "WS",
+                  "title": "Samoa",
+                  "type": "string"
+                },
+                {
+                  "const": "XK",
+                  "title": "Kosovo",
+                  "type": "string"
+                },
+                {
+                  "const": "YE",
+                  "title": "Yemen",
+                  "type": "string"
+                },
+                {
+                  "const": "YT",
+                  "title": "Mayotte",
+                  "type": "string"
+                },
+                {
+                  "const": "ZA",
+                  "title": "South Africa",
+                  "type": "string"
+                },
+                {
+                  "const": "ZM",
+                  "title": "Zambia",
+                  "type": "string"
+                },
+                {
+                  "const": "ZW",
+                  "title": "Zimbabwe",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "app_store_front"
+          ]
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "device": {
+              "enum": [
+                "apple_tv_hadron",
+                "apple_tv_marquee",
+                "ipad",
+                "iphone"
+              ]
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "apple_full_receipt": {
+              "$id": "#root/apple_full_receipt",
+              "title": "Apple Full Receipt",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "abcdefg123"
+              ],
+              "pattern": "^.*$"
+            }
+          },
+          "required": [
+            "apple_full_receipt"
+          ]
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "device": {
+              "enum": [
+                "android_phone",
+                "android_tablet",
+                "android_tv",
+                "desktop",
+                "fire_tv"
+              ]
+            }
+          }
+        },
+        "then": {
+          "properties": {},
+          "required": []
+        }
+      },
+      {
+        "required": [
+          "device"
+        ]
+      }
+    ]
+  },
+  "planPicker": {
+    "traceId": "57e1f6f181a4c9d1",
+    "data": {
+      "type": "planPicker",
+      "backgroundImage": "https://artist.api.cdn.hbo.com/images/82044BC666664B1B932BE07C12B63213/background?v=684dde112d787861b069b34e20f3fd2b&size={{size}}&protection={{protection}}&scaleDownToFit={{scaleDownToFit}}",
+      "pageHeader": "Choose Your Plan",
+      "pageSubheader": "Enjoy our entire library, plus exclusive streaming access to the biggest Warner Bros. movies of 2022 at no extra cost.",
+      "skuPlans": [{
+        "titleHeader": "With Ads",
+        "planPerks": [{
+          "perkText": "Watch everything with limited ads for a lower price"
+        }],
+        "billingHeader": "Monthly",
+        "billingText": "$9.99/mo",
+        "sku": "05f69406-22ed-40c2-91a7-3f1d7777ed16",
+        "offerEligibilityPlanId": "bde7d3b4-51c2-4670-8dec-6886acd7f3c8",
+        "purchaseType": "NEW",
+        "cta": "SELECT PLAN",
+        "planType": "AVOD_MONTHLY",
+        "purchaseSkuCountry": "US"
+      }, {
+        "titleHeader": "Ad-Free",
+        "planPerks": [{
+          "perkText": "No ads, no interruptions"
+        }, {
+          "perkText": "Download your favorites to watch on-the-go"
+        }, {
+          "perkText": "Stream in 4K UHD (as available) "
+        }],
+        "billingHeader": "Monthly",
+        "billingText": "$14.99/mo",
+        "sku": "e97e6291-ed67-4bb5-8bdd-7697778373ac",
+        "offerEligibilityPlanId": "6425b7e6-6789-4c67-a922-ef31e750bc8b",
+        "purchaseType": "NEW",
+        "cta": "SELECT PLAN",
+        "planType": "SVOD_MONTHLY",
+        "purchaseSkuCountry": "US"
+      }, {
+        "titleHeader": "With Ads",
+        "planPerks": [{
+          "perkText": "Watch everything with limited ads for a lower price"
+        }],
+        "billingHeader": "Yearly",
+        "billingSubHeader": "Save 16%",
+        "billingText": "$99.99/yr",
+        "billingTextSubHeader": "Save 16%",
+        "sku": "8ecdd246-5e21-4c52-8594-1da506ee56b6",
+        "offerEligibilityPlanId": "bde7d2c3-51e4-4670-8dec-6886acd7f3c8",
+        "purchaseType": "NEW",
+        "cta": "SELECT PLAN",
+        "planType": "AVOD_YEARLY",
+        "purchaseSkuCountry": "US"
+      }, {
+        "titleHeader": "Ad-Free",
+        "planPerks": [{
+          "perkText": "No ads, no interruptions"
+        }, {
+          "perkText": "Download your favorites to watch on-the-go"
+        }, {
+          "perkText": "Stream in 4K UHD (as available) "
+        }],
+        "billingHeader": "Yearly",
+        "billingSubHeader": "Save 16%",
+        "billingText": "$149.99/yr",
+        "billingTextSubHeader": "Save 16%",
+        "sku": "ae4d9e27-5773-43ee-bf5d-067b3a52189f",
+        "offerEligibilityPlanId": "6425b7e6-6789-4c67-a936-ef31e750bc8b",
+        "purchaseType": "NEW",
+        "cta": "SELECT PLAN",
+        "planType": "SVOD_YEARLY",
+        "purchaseSkuCountry": "US"
+      }, {
+        "titleHeader": "HBO Only",
+        "planPerks": [{
+          "perkText": "All of HBO’s original series, documentaries & movies"
+        }, {
+          "perkText": "4,000 hours of entertainment with no ads"
+        }, {
+          "perkText": "Watch in HD, with select movies available in 4K UHD"
+        }, {
+          "perkText": "Download your favorite titles to watch anytime"
+        }],
+        "billingHeader": "Monthly",
+        "billingText": "$14.99/mo",
+        "sku": "0fdf9347-b3b9-4010-9f3d-248ce1b89bf7",
+        "offerEligibilityPlanId": "b957213-42e6-4762-a7f2-ac5f0953251b",
+        "purchaseType": "NEW",
+        "cta": "SELECT PLAN",
+        "planType": "HBO_ONLY_MONTHLY",
+        "purchaseSkuCountry": "US"
+      }]
+    }
+  }
+}
