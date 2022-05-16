@@ -139,6 +139,7 @@
       "src/**/*.{ts,tsx}",
       "cypress/integration/step-definitions/**/*.ts"
     ],
-    "exclude": []
+    "exclude": [".storybook/preview.js-generated-config-entry.js"],
+    "excludeAfterRemap": true
   }
 }
