@@ -16,11 +16,11 @@ When("{string} is selected as the {string}", (option, field) => {
     cy.findByRole("option", {name: option}).click();
 });
 
-When("{string} is pre-selected as the device", (device) => {
-    cy.loadStory('components-userwallsapiresponsegenerator-responsegeneratorform', device)
+When("{string} is pre-selected as the story", (story) => {
+    cy.loadStory('components-userwallsapiresponsegenerator-responsegeneratorform', story)
 });
 
-
+// Commen Then
 Then("the rendered form contains the basic fields", () => {
     cy.get('#root_env-label')
         .should('have.length', 1)
