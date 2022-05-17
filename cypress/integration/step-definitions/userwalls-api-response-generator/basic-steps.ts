@@ -11,9 +11,15 @@ Given("I am a user wanting to generate a Plan Picker response", () => {
 });
 
 // Common When
-When("{string} is selected as the device", (device) => {
+When("{string} is selected as the {string}", (option, field) => {
+    cy.get(`#root_${field}`).click();
+    cy.findByRole("option", {name: option}).click();
+});
+
+When("{string} is pre-selected as the device", (device) => {
     cy.loadStory('components-userwallsapiresponsegenerator-responsegeneratorform', device)
 });
+
 
 Then("the rendered form contains the basic fields", () => {
     cy.get('#root_env-label')

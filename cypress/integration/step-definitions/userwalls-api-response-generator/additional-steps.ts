@@ -17,6 +17,6 @@ And("the rendered form includes App Store Front", () => {
     cy.findAllByText(/App Store Front/i).should("have.length", 2);
 });
 
-// And("a form reset is triggered", () => {
-//     cy.get('button:contains("Reset")').click();
-// });
+And("a form reset is triggered", () => {
+    cy.get('button:contains("Reset")').click();
+});
