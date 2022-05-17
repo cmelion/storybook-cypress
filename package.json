@@ -15,7 +15,8 @@
     "sample-app": "react-scripts -r @cypress/instrument-cra start",
     "start:api": "nodemon --watch ./json-server/ ./json-server/server.js --delay 10",
     "start:server": "BROWSER=none start-storybook -p 6006",
-    "test:all": "NODE_ENV=development BABEL_ENV=development start-test start:api 3030 start:server 6006 test"
+    "test:all": "NODE_ENV=development BABEL_ENV=development start-test start:api 3030 start:server 6006 test",
+    "open:coverage": "open ./coverage/lcov-report/index.html"
   },
   "eslintConfig": {
     "extends": [
