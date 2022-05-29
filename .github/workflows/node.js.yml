@@ -33,14 +33,14 @@ jobs:
       - name: Test
         run: npm run integration-test
 
-#      - name: Report code coverage
-#        uses: vebr/jest-lcov-reporter@v0.2.0
-#        with:
-#          update-comment: true
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          lcov-file: ./coverage/lcov.info
+      - name: Report code coverage
+        uses: vebr/jest-lcov-reporter@v0.2.0
+        with:
+          update-comment: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          lcov-file: ./coverage/lcov.info
 
-      - name: Deploy Coverage Report - https://cmelion.github.io/storybook-cypress 🚀
+      - name: [Deploy Coverage Report](https://cmelion.github.io/storybook-cypress) 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: gh-pages # The branch the action should deploy to.
