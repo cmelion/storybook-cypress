@@ -1,5 +1,5 @@
 {
-  "name": "pit-tooling-components",
+  "name": "storybook-cypress",
   "version": "0.1.0",
   "private": true,
   "scripts": {
