@@ -4,12 +4,12 @@ module.exports = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
-    "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/addon-links",
     "@storybook/preset-create-react-app",
+    "addon-redux",
     "storybook-axios/register",
-    "addon-redux"
   ],
   "framework": "@storybook/react",
   "core": {
@@ -26,5 +26,5 @@ module.exports = {
       // "istanbul" -> doesn't work too
     ]
     // any extra options you want to set
-  }),
+  })
 }

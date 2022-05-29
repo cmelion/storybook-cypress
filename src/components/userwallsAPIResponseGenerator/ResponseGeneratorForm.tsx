@@ -6,6 +6,8 @@ import {useResource} from "react-request-hook";
 import ReactJson from "react-json-view"
 import { AutoCompleteWidget } from "../autocomplete";
 import { DateTimePickerWithTimeZoneWidget } from "../dateTimePickerWithTimeZoneWidget";
+import {NavigationTabs} from "../tabs";
+import {routes} from "../../routes";
 import ObjectFieldTemplate from "../ObjectFieldTemplate";
 import api from "../../api";
 
@@ -54,12 +56,6 @@ const reducer = (state: any, action: { type: any, payload?: any }) => {
             return {...state, schema: action.payload, schemaLoaded: true}
         }
 
-        case "SET_PLAN_PICKER": {
-            return {...state, planPickerResponse: action.payload, planPickerResponseLoaded: true}
-        }
-
-        default:
-            return state;
     }
 };
 
@@ -79,13 +75,9 @@ const ResponseGeneratorForm = (props: any) => {
     // Handle side-effects -
 
     // Effect Hook to load the values and generate form elements from schema
-    useEffect(() => {
-        if (schema === undefined) {
-            // Request schema
-            getSchema();
-        }
+    useEffect(() => getSchema(),
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        []);
 
     useEffect(() => {
         if (schemaResponse.data) {
@@ -159,6 +151,7 @@ const ResponseGeneratorForm = (props: any) => {
 
     return <div data-testid="response-generator-form-wrapper" className="response-generator-form-wrapper">
         <Paper elevation={1} >
+            <NavigationTabs routes={routes}/>
             {schemaLoaded &&
                 <ResponseGeneratorForm/>
             }

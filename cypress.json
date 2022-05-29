@@ -1,6 +1,6 @@
 {
   "baseUrl": "http://localhost:6006",
   "testFiles": "**/*.{feature,features}",
-  "videos": false,
+  "video": false,
   "componentFolder": "src"
 }

@@ -20,3 +20,7 @@ And("the rendered form includes App Store Front", () => {
 And("a form reset is triggered", () => {
     cy.get('button:contains("Reset")').click();
 });
+
+And("a form submit is triggered", () => {
+    cy.get('button:contains("Submit")').click();
+});

@@ -46,6 +46,7 @@ const DateTimePickerWithTimeZoneWidget = ({
             // Fall back to text input if no options are provided via schema
             <TextField
                 id={id}
+                data-testid="DateTimePickerWithTimeZoneWidget"
                 label={`${label || schema.title} (${userSetTimeZone})`}
                 type="datetime-local"
                 defaultValue = {placeholder}

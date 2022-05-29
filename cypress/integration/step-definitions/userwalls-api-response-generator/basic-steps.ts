@@ -41,5 +41,13 @@ Then("the rendered form contains the basic fields", () => {
         .should('have.length', 1)
 });
 
+Then(/^form errors are displayed for required fields$/, function () {
+    cy.findAllByText(/Please choose a valid value for ".env"./i).should("have.length", 1);
+    cy.findAllByText(/Please choose a valid value for ".market"./i).should("have.length", 1);
+    cy.findAllByText(/Please choose a valid value for ".device"./i).should("have.length", 1);
+});
 
-
+Then(/^the json view is displayed$/, function () {
+    cy.get('.react-json-view')
+        .should('have.length', 1)
+});

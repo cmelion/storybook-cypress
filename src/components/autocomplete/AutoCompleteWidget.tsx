@@ -10,7 +10,7 @@ import {utils} from "@rjsf/core";
 
 const {asNumber, guessType} = utils;
 
-const nums = new Set(["number", "integer"]);
+// const nums = new Set(["number", "integer"]);
 
 const AutoCompleteWidget = ({
                                 schema,
@@ -32,7 +32,7 @@ const AutoCompleteWidget = ({
     const {enumOptions} = options;
 
     if (!placeholder) {
-        placeholder = (options.placeholder) as any || undefined;
+        placeholder = (options.placeholder) as any;
     }
 
     const emptyValue = multiple ? [] : undefined;
@@ -52,37 +52,28 @@ const AutoCompleteWidget = ({
      */
     const processValue = (schema: any, value: any) => {
         // "enum" is a reserved word, so only "type" and "items" can be destructured
-        const {type, items} = schema;
-        if (value === "") {
+        const {type /*, items*/} = schema;
+        if (value === "" || value.length === 0) {
             return undefined;
-        } else if (type === "array" && items && nums.has(items.type)) {
-            return value.map(asNumber);
+        // } else if (type === "array" && items && nums.has(items.type)) {
+        //     return value.map(asNumber);
         } else if (type === "boolean") {
-            return value === "true";
-        } else if (type === "number") {
-            return asNumber(value);
+            return [value[value.length - 1]];
         }
 
-        // If type is undefined, but an enum is present, try and infer the type from
-        // the enum values
-        if (schema.enum) {
-            if (schema.enum.every((x: any) => guessType(x) === "number")) {
-                return asNumber(value);
-            } else if (schema.enum.every((x: any) => guessType(x) === "boolean")) {
-                return value === "true";
-            }
-        }
         if (multiple === undefined) {
+            const idx = value.length -1 ;
+            // If type is undefined, but an enum is present, try and infer the type from
+            // the enum values
+            if (schema.enum) {
+                if (schema.enum.every((x: any) => guessType(x) === "number")) {
+                    return asNumber(value[idx]);
+                } else if (schema.enum.every((x: any) => guessType(x) === "boolean")) {
+                    return value[idx] === true;
+                }
+            }
             // Remove the original item and return the new value
-            if (value.length === 2) {
-                return value[1];
-            }
-            if (value.length === 1) {
-                return value[0];
-            }
-            if (value.length === 0) {
-                return undefined;
-            }
+            return value[idx];
         }
         return value;
     };
@@ -124,7 +115,9 @@ const AutoCompleteWidget = ({
     }
 
     const handleClick = (ev: any) => {
-        const value = ev.target.innerText.match(/\(([^()]*)\)$/).pop();
+        const fullText = ev.target.innerText;
+        const preferredText = fullText.match(/\(([^()]*)\)$/);
+        const value = preferredText? preferredText.pop() : fullText;
         copy(value).then(() =>
             toast.info(
                 <React.Fragment>
@@ -140,7 +133,7 @@ const AutoCompleteWidget = ({
             // Fall back to text input if no options are provided via schema
             <TextField
                 id={id}
-                label={label || schema.title}
+                label={label}
                 value={typeof value === "undefined" ? emptyValue : value}
                 // @ts-ignore
                 placeholder={typeof placeholder === "undefined" ? "" : placeholder}
@@ -160,12 +153,12 @@ const AutoCompleteWidget = ({
                     buildDefaultValue()
                 }
                 // @ts-ignore
-                options={options.enumOptions !== undefined ? options.enumOptions : options}
+                options={options.enumOptions /* || options */}
                 // @ts-ignore
                 getOptionLabel={(option) => {
-                    if (typeof option === "undefined") {
-                        return emptyValue;
-                    }
+                    // if (typeof option === "undefined") {
+                    //     return emptyValue;
+                    // }
                     // @ts-ignore
                     if (option.label === "Unknown" || option.label === option.value) {
                         return option.value;
@@ -175,10 +168,7 @@ const AutoCompleteWidget = ({
                 }}
                 isOptionEqualToValue={
                     (option: { value: any; }, value: { value: any; } | undefined) => {
-                        if (value === undefined) {
-                            return false;
-                        }
-                        return option.value === value.value
+                        return option.value === value?.value
                     }
                 }
                 // @ts-ignore
@@ -190,7 +180,7 @@ const AutoCompleteWidget = ({
                     <TextField
                         {...params}
                         id={id}
-                        label={label || schema.title}
+                        label={label}
                         value={typeof value === "undefined" ? emptyValue : value}
                         // @ts-ignore
                         placeholder={typeof placeholder === "undefined" ? "" : placeholder}

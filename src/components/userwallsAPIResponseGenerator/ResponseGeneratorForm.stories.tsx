@@ -13,10 +13,9 @@ export default {
     }
 };
 
-// @ts-ignore
-const Template = args => <ResponseGeneratorForm {...args} />;
 
-// @ts-ignore
+const Template = (args: any) => <ResponseGeneratorForm {...args} />;
+
 export const Basic = () => <ResponseGeneratorForm />;
 Basic.args = {};
 Basic.play = async () => {
@@ -25,6 +24,7 @@ Basic.play = async () => {
 };
 
 export const Roku = Template.bind({});
+
 // @ts-ignore
 Roku.args = {
     formData: {
@@ -32,7 +32,7 @@ Roku.args = {
         "market": "",
         "device": "roku",
         "ip": "",
-        "app_store_front": null,
+        "app_store_front": "BE",
         "apple_full_receipt": ""
     },
 };
@@ -63,4 +63,22 @@ iPhone.play = async () => {
     window.store.dispatch({type: "reset-state"});
     // @ts-ignore
     window.store.dispatch(setTimezone('America/New_York'));
+};
+
+export const SubmissionReady = Template.bind({});
+// @ts-ignore
+SubmissionReady.args = {
+    formData: {
+        "env": "snp",
+        "market": "us",
+        "device": "desktop",
+        "ip": "",
+        "app_store_front": null,
+        "apple_full_receipt": ""
+    },
+};
+// @ts-ignore
+SubmissionReady.play = async () => {
+    // @ts-ignore
+    window.store.dispatch({type: "reset-state"});
 };
