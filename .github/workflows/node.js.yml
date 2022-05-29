@@ -40,8 +40,9 @@ jobs:
 #          github-token: ${{ secrets.GITHUB_TOKEN }}
 #          lcov-file: ./coverage/lcov.info
 
-      - name: Deploy 🚀
+      - name: Deploy Coverage Report - https://cmelion.github.io/storybook-cypress 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: coverage/lcov-report # The folder the action should deploy.
+          github-token: ${{ secrets.GITHUB_TOKEN }}
