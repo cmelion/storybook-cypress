@@ -50,8 +50,6 @@ A simple React component capable of building HTML forms out of a [JSON schema](h
 
 API calls are mocked via [json-server](https://github.com/typicode/json-server)
 
-Testing
-
 ## Pull-Requests
 
 Coverage metrics are generated and available in the PR comments.
