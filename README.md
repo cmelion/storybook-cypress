@@ -17,8 +17,6 @@ When building a design system, we like to see components rendered in isolation. 
 
 Once we know how our components should look and behave, we want to test them. For that part, we can use [Cypress](https://www.cypress.io/). How great would it be if we could just re-use the stories from Storybook to test our component? 
 
-As applications get more complex, it becomes a priority for test automation systems to capture and clearly express business intent, to ensure that the most important functionality of the system is sufficiently covered. They need to be easy to scale to multiple projects and teams, and all this while keeping maintenance costs to a minimum.
-
 # Test Automation: Speaking the right language
 
 ![Single Source of Truth-BDD-Workflow](docs/images/bdd-diagram.png)
