@@ -1,3 +1,15 @@
+![Single Source of Truth-BDD-Workflow](docs/images/bdd-diagram.png)
+
+# Test Automation: Speaking the right language
+
+As applications get more complex, it becomes a priority for test automation systems to capture and clearly express business intent, to ensure that the most important functionality of the system is sufficiently covered. They need to be easy to scale to multiple projects and teams, and all this while keeping maintenance costs to a minimum.
+
+# Expresssing test scenarios in business language
+
+More and more teams nowadays are adopting a more collaborative approach to defining requirements, using tools like Cucumber to define executable acceptance criteria in a more human-readable form.
+
+Cucumber scenarios are typically expressed using a high-level business language, so you won't see any mentions of clicking on buttons or entering values into fields. This helps the scenario play its role as a collaboration and documentation tool, without getting too tied down to how the application is implemented under the hood.
+
 # Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -37,6 +49,8 @@ Forms are built using [react-jsonschema-form](https://react-jsonschema-form.read
 A simple React component capable of building HTML forms out of a [JSON schema](http://json-schema.org/).
 
 API calls are mocked via [json-server](https://github.com/typicode/json-server)
+
+Testing
 
 ## Pull-Requests
 
