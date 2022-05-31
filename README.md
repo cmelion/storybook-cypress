@@ -19,7 +19,8 @@ Once we know how our components should look and behave, we want to test them. Fo
 
 # Test Automation: Speaking the right language
 
-![Single Source of Truth-BDD-Workflow](docs/images/bdd-diagram.png)
+![Single Source of Truth-BDD-Workflow](https://user-images.githubusercontent.com/752719/171225328-9dd1d407-1e2d-44fe-b945-d6b27d425ca3.png)
+
 
 As applications get more complex, it becomes a priority for test automation systems to capture and clearly express business intent, to ensure that the most important functionality of the system is sufficiently covered. They need to be easy to scale to multiple projects and teams, and all this while keeping maintenance costs to a minimum.
 
