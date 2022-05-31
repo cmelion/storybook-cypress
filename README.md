@@ -5,7 +5,7 @@ Many organizations develop a vast pool of internal browser-based tools that impa
 
 Some organizations attempt to combat this by hosting all features in a single mono-app/repo.  This inevitably leads to a bloated code-base with many different coding styles and legacy dependencies that make it difficult to determine what current best practices are.  Eventually everthing is scrapped and the entire process starts anew.
 
-An alternative approach is to provide a light-weight shell that surfaces some common features and patterns like authentication, state-management, navigation, form handling and UX components.  This approach allows developers to develop additonal components and functionality, both simple and complex, independently and deploy as components to repositories such as [npm](https://www.npmjs.com/) or [Artifactory](https://jfrog.com/artifactory/).  These components can then be demand-loaded to improve scalability.
+An alternative approach is to provide a light-weight shell that surfaces some common features and patterns like authentication, state-management, navigation, form handling and UX components.  This approach allows developers to create additonal components and functionality, both simple and complex, independently and deploy as components to repositories such as [npm](https://www.npmjs.com/) or [Artifactory](https://jfrog.com/artifactory/).  These components can then be demand-loaded to improve scalability.
 
 The challenge is to provide an environment to develop components that are intended to be hosted in a containing application that provides a large portion of the core functionality while still allowing individual components to bring in unique features.
 
