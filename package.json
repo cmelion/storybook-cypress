@@ -70,6 +70,7 @@
     "redux-first-router": "^2.1.5"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.10",
     "@cypress/browserify-preprocessor": "3.0.2",
     "@cypress/code-coverage": "3.9.12",
     "@cypress/instrument-cra": "1.4.0",
