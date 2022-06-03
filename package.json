@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "react-scripts build",
-    "build-storybook": "build-storybook -s public",
+    "build": "npm run clean && npm run build:babel && npm run build:tsc",
+    "build:babel": "babel ./src --config-file ./babel.config.js --out-dir ./dist --source-maps inline --copy-files --ignore stories.tsx --extensions '.ts,.tsx'",
+    "build:tsc": "$(npm bin)/tsc -p tsconfig.build.json",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "install-peers": "npx npm-install-peers",
