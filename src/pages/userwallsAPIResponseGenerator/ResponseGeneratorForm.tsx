@@ -4,11 +4,11 @@ import { MuiForm5 as Form } from "@rjsf/material-ui";
 import React, {useEffect, useReducer} from "react";
 import {useResource} from "react-request-hook";
 import ReactJson from "react-json-view"
-import { AutoCompleteWidget } from "../autocomplete";
-import { DateTimePickerWithTimeZoneWidget } from "../dateTimePickerWithTimeZoneWidget";
-import {NavigationTabs} from "../tabs";
+import { AutoCompleteWidget } from "../../components/autocomplete";
+import { DateTimePickerWithTimeZoneWidget } from "../../components/dateTimePickerWithTimeZoneWidget";
+import {NavigationTabs} from "../../components/tabs";
 import {routes} from "../../routes";
-import ObjectFieldTemplate from "../ObjectFieldTemplate";
+import ObjectFieldTemplate from "../../components/ObjectFieldTemplate";
 import api from "../../api";
 
 const widgets = {
