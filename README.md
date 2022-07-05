@@ -1,6 +1,3 @@
-![eclipse](https://user-images.githubusercontent.com/752719/171046557-3e1714a4-de18-42b3-acef-67a84f9c7709.png)
-
-
 Many organizations develop a vast pool of internal browser-based tools that impact both internal and external "customers".  These internal tools are often a mix of more opinionated frameworks like Angular or less opinionated ones like React or perhaps Vue or Svelte.  For each tool the decisions on authentication, package management, build-tools, implementation language and testing frameworks/strategies and off-the-shelf component libraries is replicated. 
 
 Some organizations attempt to combat this by hosting all features in a single mono-app/repo.  This inevitably leads to a bloated code-base with many different coding styles and legacy dependencies that make it difficult to determine what current best practices are.  Eventually everthing is scrapped and the entire process starts anew.
