@@ -1,10 +1,10 @@
-import {ResponseGeneratorForm} from './';
+import {ResponseGeneratorForm} from './index';
 import { ARG_REDUX_PATH } from 'addon-redux';
 import { setTimezone } from "../../state/slice";
 
 export default {
     component: ResponseGeneratorForm,
-    title: 'components/userwallsAPIResponseGenerator/ResponseGeneratorForm',
+    title: 'pages/userwallsAPIResponseGenerator/ResponseGeneratorForm',
     argTypes: {
         timezone: {
             control: { type: 'text' },

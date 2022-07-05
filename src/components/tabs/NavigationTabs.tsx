@@ -1,5 +1,5 @@
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 import React, {ChangeEvent} from "react";
 import {push} from "redux-first-router";
 import {useAppSelector} from "../../state/hooks";
