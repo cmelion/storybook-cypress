@@ -17,7 +17,7 @@ When("{string} is selected as the {string}", (option, field) => {
 });
 
 When("{string} is pre-selected as the story", (story) => {
-    cy.loadStory('components-userwallsapiresponsegenerator-responsegeneratorform', story)
+    cy.loadStory('pages-userwallsapiresponsegenerator-responsegeneratorform', story)
 });
 
 // Commen Then
